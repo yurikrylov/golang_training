@@ -19,14 +19,14 @@ func CalcOrder(order []string) {
 
 	result := 0
 
-	for k := range priceList {
-		if priceList[k] > 500 {
+	for k, v := range priceList {
+		if v > 500 {
 			fmt.Println(k)
 
 		}
 	}
 	for _, v := range order {
-		result = result + priceList[v]
+		result += priceList[v]
 	}
 	fmt.Println(result)
 }
