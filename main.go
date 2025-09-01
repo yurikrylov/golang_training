@@ -11,7 +11,7 @@ import (
 func main() {
 
 	//utils.KeyboardReading()
-	fmt.Print(utils.StringTasks1())
+	fmt.Print(utils.StringTask1())
 
 }
 
