@@ -1,18 +1,23 @@
 package main
 
-//import "fmt"
-
 import (
 	"fmt"
 
 	"github.com/yurikrylov/golang_training/utils"
 )
 
+//import "fmt"
+
+//"github.com/yurikrylov/golang_training/utils"
+
 func main() {
-
-	//utils.KeyboardReading()
-	fmt.Print(utils.StringTask1())
-
+	x := 10
+	f := func() int {
+		x *= 2
+		return x
+	}
+	fmt.Print(f(), x)
+	utils.TestGeminiQ2()
 }
 
 /*

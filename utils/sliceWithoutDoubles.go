@@ -2,13 +2,14 @@ package utils
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
-func SliceWithoutDoubles() {
+func SliceWithoutDoubles() ([]int, error) {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println("Введите целые числа, разделенные пробелами:")
 
@@ -22,17 +23,17 @@ func SliceWithoutDoubles() {
 		n, err := strconv.Atoi(field)
 		if err != nil {
 			fmt.Println("Ошибка преобразования:", field)
-			return
+			return nil, errors.New("invalid input")
 		}
 		mySlice = append(mySlice, n)
 	}
 	var result []int
-	seen := make(map[int]bool)
+	seen := make(map[int]struct{})
 	for _, num := range mySlice {
-		if !seen[num] {
-			seen[num] = true
+		if _, ok := seen[num]; !ok {
+			seen[num] = struct{}{}
 			result = append(result, num)
 		}
 	}
-	fmt.Println("Срез без дубликатов:", result)
+	return result, nil
 }
