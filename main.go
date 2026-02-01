@@ -1,10 +1,7 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/yurikrylov/golang_training/utils"
-)
+import "fmt"
+import utils
 
 //import "fmt"
 
@@ -17,7 +14,7 @@ func main() {
 		return x
 	}
 	fmt.Print(f(), x)
-	utils.TestGeminiQ2()
+	TestGeminiQ2()
 }
 
 /*
