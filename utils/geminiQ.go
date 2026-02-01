@@ -50,7 +50,21 @@ func MergeSorted(s1, s2 []int) ([]int, error) {
 
 // Фильтрация: Напиши функцию, которая удаляет из среза все отрицательные числа.
 func FilterNegative(s []int) []int {
-	var result []int
+
+	keep := 0
+
+	for _, num := range s {
+		if num >= 0 {
+			s[keep] = num
+			keep++
+		}
+	}
+
+	return s[:keep]
+}
+func FilterNegativeV2(s []int) []int {
+
+	result := s[:0]
 	for _, num := range s {
 		if num >= 0 {
 			result = append(result, num)
@@ -64,7 +78,9 @@ func Chunking(s []int, n int) [][]int {
 	if n <= 0 {
 		return nil
 	}
-	var chunks [][]int
+	// Вычисляем количество чанков заранее
+	numChunks := (len(s) + n - 1) / n
+	chunks := make([][]int, 0, numChunks)
 	for i := 0; i < len(s); i += n {
 		end := i + n
 		if end > len(s) {
@@ -77,6 +93,11 @@ func Chunking(s []int, n int) [][]int {
 
 // Удаление по индексу: Напиши функцию remove(s []int, i int), которая удаляет элемент по индексу, сохраняя порядок.
 // Циклический сдвиг: Сдвинь элементы среза вправо на k позиций (например, [1,2,3] при k=1 станет [3,1,2]).
+func CycleShift(s []int, i int) ([]int, error) {
+
+	return s, nil
+}
+
 // Поиск пересечения: Найди общие элементы в двух разных срезах.
 // Максимальный подмассив: Найди непрерывный подмассив с наибольшей суммой элементов (классическая задача Кадана).
 // Безопасное копирование: Создай функцию, которая копирует только первые N элементов из одного среза в другой, учитывая, что исходный срез может быть короче N.
