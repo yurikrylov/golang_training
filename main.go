@@ -1,11 +1,6 @@
 package main
 
 import "fmt"
-import utils
-
-//import "fmt"
-
-//"github.com/yurikrylov/golang_training/utils"
 
 func main() {
 	x := 10
@@ -14,12 +9,4 @@ func main() {
 		return x
 	}
 	fmt.Print(f(), x)
-	TestGeminiQ2()
 }
-
-/*
-	var order = []string{"хлеб", "буженина", "сыр", "огурцы"}
-	utils.CalcOrder(order)
-	utils.FizzBuzz()
-	utils.Switch()
-*/
